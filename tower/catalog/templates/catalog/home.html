@@ -1,0 +1,589 @@
+<!DOCUTYPE html>
+<html>
+<head>
+    {% load static %}
+    {% load plotly_dash %}
+    {% plotly_header %}
+    <style>
+    h3 {position: absolute; top: 5px; left: 268px;}
+    #button_start {position: absolute; top: 61px; left: 460px;}
+    #text_start {position: absolute; top: 85px; left: 360px;}
+    
+    #tile10101 {position: absolute; top: 132px; left: 132px; z-index: 1;}
+    #tile10201 {position: absolute; top: 132px; left: 164px; z-index: 1;}
+    #tile10301 {position: absolute; top: 132px; left: 196px; z-index: 1;}
+    #tile10401 {position: absolute; top: 132px; left: 228px; z-index: 1;}
+    #tile10501 {position: absolute; top: 132px; left: 260px; z-index: 1;}
+    #tile10601 {position: absolute; top: 132px; left: 292px; z-index: 1;}
+    #tile10701 {position: absolute; top: 132px; left: 324px; z-index: 1;}
+    #tile10801 {position: absolute; top: 132px; left: 356px; z-index: 1;}
+    #tile10901 {position: absolute; top: 132px; left: 388px; z-index: 1;}
+    #tile11001 {position: absolute; top: 132px; left: 420px; z-index: 1;}
+    #tile11101 {position: absolute; top: 132px; left: 452px; z-index: 1;}
+    #tile11201 {position: absolute; top: 132px; left: 484px; z-index: 1;}
+    #tile11301 {position: absolute; top: 132px; left: 516px; z-index: 1;}
+    #tile11401 {position: absolute; top: 132px; left: 548px; z-index: 1;}
+    #tile11501 {position: absolute; top: 132px; left: 580px; z-index: 1;}
+    #tile11601 {position: absolute; top: 132px; left: 612px; z-index: 1;}
+    #tile11701 {position: absolute; top: 132px; left: 644px; z-index: 1;}
+    #tile11801 {position: absolute; top: 132px; left: 676px; z-index: 1;}
+    #tile11901 {position: absolute; top: 132px; left: 708px; z-index: 1;}
+    #tile12001 {position: absolute; top: 132px; left: 740px; z-index: 1;}
+    #tile12101 {position: absolute; top: 132px; left: 772px; z-index: 1;}
+    #tile12201 {position: absolute; top: 132px; left: 804px; z-index: 1;}
+    
+    #tile10102 {position: absolute; top: 164px; left: 132px; z-index: 1;}
+    #tile10202 {position: absolute; top: 164px; left: 164px; z-index: 1;}
+    #tile10302 {position: absolute; top: 164px; left: 196px; z-index: 1;}
+    #tile10402 {position: absolute; top: 164px; left: 228px; z-index: 1;}
+    #tile10502 {position: absolute; top: 164px; left: 260px; z-index: 1;}
+    #tile10602 {position: absolute; top: 164px; left: 292px; z-index: 1;}
+    #tile10702 {position: absolute; top: 164px; left: 324px; z-index: 1;}
+    #tile10802 {position: absolute; top: 164px; left: 356px; z-index: 1;}
+    #tile10902 {position: absolute; top: 164px; left: 388px; z-index: 1;}
+    #tile11002 {position: absolute; top: 164px; left: 420px; z-index: 1;}
+    #tile11102 {position: absolute; top: 164px; left: 452px; z-index: 1;}
+    #tile11202 {position: absolute; top: 164px; left: 484px; z-index: 1;}
+    #tile11302 {position: absolute; top: 164px; left: 516px; z-index: 1;}
+    #tile11402 {position: absolute; top: 164px; left: 548px; z-index: 1;}
+    #tile11502 {position: absolute; top: 164px; left: 580px; z-index: 1;}
+    #tile11602 {position: absolute; top: 164px; left: 612px; z-index: 1;}
+    #tile11702 {position: absolute; top: 164px; left: 644px; z-index: 1;}
+    #tile11802 {position: absolute; top: 164px; left: 676px; z-index: 1;}
+    #tile11902 {position: absolute; top: 164px; left: 708px; z-index: 1;}
+    #tile12002 {position: absolute; top: 164px; left: 740px; z-index: 1;}
+    #tile12102 {position: absolute; top: 164px; left: 772px; z-index: 1;}
+    #tile12202 {position: absolute; top: 164px; left: 804px; z-index: 1;}
+    
+    #tile10103 {position: absolute; top: 196px; left: 132px; z-index: 1;}
+    #tile10203 {position: absolute; top: 196px; left: 164px; z-index: 1;}
+    #tile10303 {position: absolute; top: 196px; left: 196px; z-index: 1;}
+    #tile10403 {position: absolute; top: 196px; left: 228px; z-index: 1;}
+    #tile10503 {position: absolute; top: 196px; left: 260px; z-index: 1;}
+    #tile10603 {position: absolute; top: 196px; left: 292px; z-index: 1;}
+    #tile10703 {position: absolute; top: 196px; left: 324px; z-index: 1;}
+    #tile10803 {position: absolute; top: 196px; left: 356px; z-index: 1;}
+    #tile10903 {position: absolute; top: 196px; left: 388px; z-index: 1;}
+    #tile11003 {position: absolute; top: 196px; left: 420px; z-index: 1;}
+    #tile11103 {position: absolute; top: 196px; left: 452px; z-index: 1;}
+    #tile11203 {position: absolute; top: 196px; left: 484px; z-index: 1;}
+    #tile11303 {position: absolute; top: 196px; left: 516px; z-index: 1;}
+    #tile11403 {position: absolute; top: 196px; left: 548px; z-index: 1;}
+    #tile11503 {position: absolute; top: 196px; left: 580px; z-index: 1;}
+    #tile11603 {position: absolute; top: 196px; left: 612px; z-index: 1;}
+    #tile11703 {position: absolute; top: 196px; left: 644px; z-index: 1;}
+    #tile11803 {position: absolute; top: 196px; left: 676px; z-index: 1;}
+    #tile11903 {position: absolute; top: 196px; left: 708px; z-index: 1;}
+    #tile12003 {position: absolute; top: 196px; left: 740px; z-index: 1;}
+    #tile12103 {position: absolute; top: 196px; left: 772px; z-index: 1;}
+    #tile12203 {position: absolute; top: 196px; left: 804px; z-index: 1;}
+    
+    #tile10104 {position: absolute; top: 228px; left: 132px; z-index: 1;}
+    #tile10204 {position: absolute; top: 228px; left: 164px; z-index: 1;}
+    #tile10304 {position: absolute; top: 228px; left: 196px; z-index: 1;}
+    #tile10404 {position: absolute; top: 228px; left: 228px; z-index: 1;}
+    #tile10504 {position: absolute; top: 228px; left: 260px; z-index: 1;}
+    #tile10604 {position: absolute; top: 228px; left: 292px; z-index: 1;}
+    #tile10704 {position: absolute; top: 228px; left: 324px; z-index: 1;}
+    #tile10804 {position: absolute; top: 228px; left: 356px; z-index: 1;}
+    #tile10904 {position: absolute; top: 228px; left: 388px; z-index: 1;}
+    #tile11004 {position: absolute; top: 228px; left: 420px; z-index: 1;}
+    #tile11104 {position: absolute; top: 228px; left: 452px; z-index: 1;}
+    #tile11204 {position: absolute; top: 228px; left: 484px; z-index: 1;}
+    #tile11304 {position: absolute; top: 228px; left: 516px; z-index: 1;}
+    #tile11404 {position: absolute; top: 228px; left: 548px; z-index: 1;}
+    #tile11504 {position: absolute; top: 228px; left: 580px; z-index: 1;}
+    #tile11604 {position: absolute; top: 228px; left: 612px; z-index: 1;}
+    #tile11704 {position: absolute; top: 228px; left: 644px; z-index: 1;}
+    #tile11804 {position: absolute; top: 228px; left: 676px; z-index: 1;}
+    #tile11904 {position: absolute; top: 228px; left: 708px; z-index: 1;}
+    #tile12004 {position: absolute; top: 228px; left: 740px; z-index: 1;}
+    #tile12104 {position: absolute; top: 228px; left: 772px; z-index: 1;}
+    #tile12204 {position: absolute; top: 228px; left: 804px; z-index: 1;}
+    
+    #tile10105 {position: absolute; top: 260px; left: 132px; z-index: 1;}
+    #tile10205 {position: absolute; top: 260px; left: 164px; z-index: 1;}
+    #tile10305 {position: absolute; top: 260px; left: 196px; z-index: 1;}
+    #tile10405 {position: absolute; top: 260px; left: 228px; z-index: 1;}
+    #tile10505 {position: absolute; top: 260px; left: 260px; z-index: 1;}
+    #tile10605 {position: absolute; top: 260px; left: 292px; z-index: 1;}
+    #tile10705 {position: absolute; top: 260px; left: 324px; z-index: 1;}
+    #tile10805 {position: absolute; top: 260px; left: 356px; z-index: 1;}
+    #tile10905 {position: absolute; top: 260px; left: 388px; z-index: 1;}
+    #tile11005 {position: absolute; top: 260px; left: 420px; z-index: 1;}
+    #tile11105 {position: absolute; top: 260px; left: 452px; z-index: 1;}
+    #tile11205 {position: absolute; top: 260px; left: 484px; z-index: 1;}
+    #tile11305 {position: absolute; top: 260px; left: 516px; z-index: 1;}
+    #tile11405 {position: absolute; top: 260px; left: 548px; z-index: 1;}
+    #tile11505 {position: absolute; top: 260px; left: 580px; z-index: 1;}
+    #tile11605 {position: absolute; top: 260px; left: 612px; z-index: 1;}
+    #tile11705 {position: absolute; top: 260px; left: 644px; z-index: 1;}
+    #tile11805 {position: absolute; top: 260px; left: 676px; z-index: 1;}
+    #tile11905 {position: absolute; top: 260px; left: 708px; z-index: 1;}
+    #tile12005 {position: absolute; top: 260px; left: 740px; z-index: 1;}
+    #tile12105 {position: absolute; top: 260px; left: 772px; z-index: 1;}
+    #tile12205 {position: absolute; top: 260px; left: 804px; z-index: 1;}
+    
+    #tile10106 {position: absolute; top: 292px; left: 132px; z-index: 1;}
+    #tile10206 {position: absolute; top: 292px; left: 164px; z-index: 1;}
+    #tile10306 {position: absolute; top: 292px; left: 196px; z-index: 1;}
+    #tile10406 {position: absolute; top: 292px; left: 228px; z-index: 1;}
+    #tile10506 {position: absolute; top: 292px; left: 260px; z-index: 1;}
+    #tile10606 {position: absolute; top: 292px; left: 292px; z-index: 1;}
+    #tile10706 {position: absolute; top: 292px; left: 324px; z-index: 1;}
+    #tile10806 {position: absolute; top: 292px; left: 356px; z-index: 1;}
+    #tile10906 {position: absolute; top: 292px; left: 388px; z-index: 1;}
+    #tile11006 {position: absolute; top: 292px; left: 420px; z-index: 1;}
+    #tile11106 {position: absolute; top: 292px; left: 452px; z-index: 1;}
+    #tile11206 {position: absolute; top: 292px; left: 484px; z-index: 1;}
+    #tile11306 {position: absolute; top: 292px; left: 516px; z-index: 1;}
+    #tile11406 {position: absolute; top: 292px; left: 548px; z-index: 1;}
+    #tile11506 {position: absolute; top: 292px; left: 580px; z-index: 1;}
+    #tile11606 {position: absolute; top: 292px; left: 612px; z-index: 1;}
+    #tile11706 {position: absolute; top: 292px; left: 644px; z-index: 1;}
+    #tile11806 {position: absolute; top: 292px; left: 676px; z-index: 1;}
+    #tile11906 {position: absolute; top: 292px; left: 708px; z-index: 1;}
+    #tile12006 {position: absolute; top: 292px; left: 740px; z-index: 1;}
+    #tile12106 {position: absolute; top: 292px; left: 772px; z-index: 1;}
+    #tile12206 {position: absolute; top: 292px; left: 804px; z-index: 1;}
+    
+    #tile10107 {position: absolute; top: 324px; left: 132px; z-index: 1;}
+    #tile10207 {position: absolute; top: 324px; left: 164px; z-index: 1;}
+    #tile10307 {position: absolute; top: 324px; left: 196px; z-index: 1;}
+    #tile10407 {position: absolute; top: 324px; left: 228px; z-index: 1;}
+    #tile10507 {position: absolute; top: 324px; left: 260px; z-index: 1;}
+    #tile10607 {position: absolute; top: 324px; left: 292px; z-index: 1;}
+    #tile10707 {position: absolute; top: 324px; left: 324px; z-index: 1;}
+    #tile10807 {position: absolute; top: 324px; left: 356px; z-index: 1;}
+    #tile10907 {position: absolute; top: 324px; left: 388px; z-index: 1;}
+    #tile11007 {position: absolute; top: 324px; left: 420px; z-index: 1;}
+    #tile11107 {position: absolute; top: 324px; left: 452px; z-index: 1;}
+    #tile11207 {position: absolute; top: 324px; left: 484px; z-index: 1;}
+    #tile11307 {position: absolute; top: 324px; left: 516px; z-index: 1;}
+    #tile11407 {position: absolute; top: 324px; left: 548px; z-index: 1;}
+    #tile11507 {position: absolute; top: 324px; left: 580px; z-index: 1;}
+    #tile11607 {position: absolute; top: 324px; left: 612px; z-index: 1;}
+    #tile11707 {position: absolute; top: 324px; left: 644px; z-index: 1;}
+    #tile11807 {position: absolute; top: 324px; left: 676px; z-index: 1;}
+    #tile11907 {position: absolute; top: 324px; left: 708px; z-index: 1;}
+    #tile12007 {position: absolute; top: 324px; left: 740px; z-index: 1;}
+    #tile12107 {position: absolute; top: 324px; left: 772px; z-index: 1;}
+    #tile12207 {position: absolute; top: 324px; left: 804px; z-index: 1;}
+    
+    #tile10108 {position: absolute; top: 356px; left: 132px; z-index: 1;}
+    #tile10208 {position: absolute; top: 356px; left: 164px; z-index: 1;}
+    #tile10308 {position: absolute; top: 356px; left: 196px; z-index: 1;}
+    #tile10408 {position: absolute; top: 356px; left: 228px; z-index: 1;}
+    #tile10508 {position: absolute; top: 356px; left: 260px; z-index: 1;}
+    #tile10608 {position: absolute; top: 356px; left: 292px; z-index: 1;}
+    #tile10708 {position: absolute; top: 356px; left: 324px; z-index: 1;}
+    #tile10808 {position: absolute; top: 356px; left: 356px; z-index: 1;}
+    #tile10908 {position: absolute; top: 356px; left: 388px; z-index: 1;}
+    #tile11008 {position: absolute; top: 356px; left: 420px; z-index: 1;}
+    #tile11108 {position: absolute; top: 356px; left: 452px; z-index: 1;}
+    #tile11208 {position: absolute; top: 356px; left: 484px; z-index: 1;}
+    #tile11308 {position: absolute; top: 356px; left: 516px; z-index: 1;}
+    #tile11408 {position: absolute; top: 356px; left: 548px; z-index: 1;}
+    #tile11508 {position: absolute; top: 356px; left: 580px; z-index: 1;}
+    #tile11608 {position: absolute; top: 356px; left: 612px; z-index: 1;}
+    #tile11708 {position: absolute; top: 356px; left: 644px; z-index: 1;}
+    #tile11808 {position: absolute; top: 356px; left: 676px; z-index: 1;}
+    #tile11908 {position: absolute; top: 356px; left: 708px; z-index: 1;}
+    #tile12008 {position: absolute; top: 356px; left: 740px; z-index: 1;}
+    #tile12108 {position: absolute; top: 356px; left: 772px; z-index: 1;}
+    #tile12208 {position: absolute; top: 356px; left: 804px; z-index: 1;}
+    
+    #tile10109 {position: absolute; top: 388px; left: 132px; z-index: 1;}
+    #tile10209 {position: absolute; top: 388px; left: 164px; z-index: 1;}
+    #tile10309 {position: absolute; top: 388px; left: 196px; z-index: 1;}
+    #tile10409 {position: absolute; top: 388px; left: 228px; z-index: 1;}
+    #tile10509 {position: absolute; top: 388px; left: 260px; z-index: 1;}
+    #tile10609 {position: absolute; top: 388px; left: 292px; z-index: 1;}
+    #tile10709 {position: absolute; top: 388px; left: 324px; z-index: 1;}
+    #tile10809 {position: absolute; top: 388px; left: 356px; z-index: 1;}
+    #tile10909 {position: absolute; top: 388px; left: 388px; z-index: 1;}
+    #tile11009 {position: absolute; top: 388px; left: 420px; z-index: 1;}
+    #tile11109 {position: absolute; top: 388px; left: 452px; z-index: 1;}
+    #tile11209 {position: absolute; top: 388px; left: 484px; z-index: 1;}
+    #tile11309 {position: absolute; top: 388px; left: 516px; z-index: 1;}
+    #tile11409 {position: absolute; top: 388px; left: 548px; z-index: 1;}
+    #tile11509 {position: absolute; top: 388px; left: 580px; z-index: 1;}
+    #tile11609 {position: absolute; top: 388px; left: 612px; z-index: 1;}
+    #tile11709 {position: absolute; top: 388px; left: 644px; z-index: 1;}
+    #tile11809 {position: absolute; top: 388px; left: 676px; z-index: 1;}
+    #tile11909 {position: absolute; top: 388px; left: 708px; z-index: 1;}
+    #tile12009 {position: absolute; top: 388px; left: 740px; z-index: 1;}
+    #tile12109 {position: absolute; top: 388px; left: 772px; z-index: 1;}
+    #tile12209 {position: absolute; top: 388px; left: 804px; z-index: 1;}
+    
+    #tile10110 {position: absolute; top: 420px; left: 132px; z-index: 1;}
+    #tile10210 {position: absolute; top: 420px; left: 164px; z-index: 1;}
+    #tile10310 {position: absolute; top: 420px; left: 196px; z-index: 1;}
+    #tile10410 {position: absolute; top: 420px; left: 228px; z-index: 1;}
+    #tile10510 {position: absolute; top: 420px; left: 260px; z-index: 1;}
+    #tile10610 {position: absolute; top: 420px; left: 292px; z-index: 1;}
+    #tile10710 {position: absolute; top: 420px; left: 324px; z-index: 1;}
+    #tile10810 {position: absolute; top: 420px; left: 356px; z-index: 1;}
+    #tile10910 {position: absolute; top: 420px; left: 388px; z-index: 1;}
+    #tile11010 {position: absolute; top: 420px; left: 420px; z-index: 1;}
+    #tile11110 {position: absolute; top: 420px; left: 452px; z-index: 1;}
+    #tile11210 {position: absolute; top: 420px; left: 484px; z-index: 1;}
+    #tile11310 {position: absolute; top: 420px; left: 516px; z-index: 1;}
+    #tile11410 {position: absolute; top: 420px; left: 548px; z-index: 1;}
+    #tile11510 {position: absolute; top: 420px; left: 580px; z-index: 1;}
+    #tile11610 {position: absolute; top: 420px; left: 612px; z-index: 1;}
+    #tile11710 {position: absolute; top: 420px; left: 644px; z-index: 1;}
+    #tile11810 {position: absolute; top: 420px; left: 676px; z-index: 1;}
+    #tile11910 {position: absolute; top: 420px; left: 708px; z-index: 1;}
+    #tile12010 {position: absolute; top: 420px; left: 740px; z-index: 1;}
+    #tile12110 {position: absolute; top: 420px; left: 772px; z-index: 1;}
+    #tile12210 {position: absolute; top: 420px; left: 804px; z-index: 1;}
+    
+    #tile10111 {position: absolute; top: 452px; left: 132px; z-index: 1;}
+    #tile10211 {position: absolute; top: 452px; left: 164px; z-index: 1;}
+    #tile10311 {position: absolute; top: 452px; left: 196px; z-index: 1;}
+    #tile10411 {position: absolute; top: 452px; left: 228px; z-index: 1;}
+    #tile10511 {position: absolute; top: 452px; left: 260px; z-index: 1;}
+    #tile10611 {position: absolute; top: 452px; left: 292px; z-index: 1;}
+    #tile10711 {position: absolute; top: 452px; left: 324px; z-index: 1;}
+    #tile10811 {position: absolute; top: 452px; left: 356px; z-index: 1;}
+    #tile10911 {position: absolute; top: 452px; left: 388px; z-index: 1;}
+    #tile11011 {position: absolute; top: 452px; left: 420px; z-index: 1;}
+    #tile11111 {position: absolute; top: 452px; left: 452px; z-index: 1;}
+    #tile11211 {position: absolute; top: 452px; left: 484px; z-index: 1;}
+    #tile11311 {position: absolute; top: 452px; left: 516px; z-index: 1;}
+    #tile11411 {position: absolute; top: 452px; left: 548px; z-index: 1;}
+    #tile11511 {position: absolute; top: 452px; left: 580px; z-index: 1;}
+    #tile11611 {position: absolute; top: 452px; left: 612px; z-index: 1;}
+    #tile11711 {position: absolute; top: 452px; left: 644px; z-index: 1;}
+    #tile11811 {position: absolute; top: 452px; left: 676px; z-index: 1;}
+    #tile11911 {position: absolute; top: 452px; left: 708px; z-index: 1;}
+    #tile12011 {position: absolute; top: 452px; left: 740px; z-index: 1;}
+    #tile12111 {position: absolute; top: 452px; left: 772px; z-index: 1;}
+    #tile12211 {position: absolute; top: 452px; left: 804px; z-index: 1;}
+    
+    #tile10112 {position: absolute; top: 484px; left: 132px; z-index: 1;}
+    #tile10212 {position: absolute; top: 484px; left: 164px; z-index: 1;}
+    #tile10312 {position: absolute; top: 484px; left: 196px; z-index: 1;}
+    #tile10412 {position: absolute; top: 484px; left: 228px; z-index: 1;}
+    #tile10512 {position: absolute; top: 484px; left: 260px; z-index: 1;}
+    #tile10612 {position: absolute; top: 484px; left: 292px; z-index: 1;}
+    #tile10712 {position: absolute; top: 484px; left: 324px; z-index: 1;}
+    #tile10812 {position: absolute; top: 484px; left: 356px; z-index: 1;}
+    #tile10912 {position: absolute; top: 484px; left: 388px; z-index: 1;}
+    #tile11012 {position: absolute; top: 484px; left: 420px; z-index: 1;}
+    #tile11112 {position: absolute; top: 484px; left: 452px; z-index: 1;}
+    #tile11212 {position: absolute; top: 484px; left: 484px; z-index: 1;}
+    #tile11312 {position: absolute; top: 484px; left: 516px; z-index: 1;}
+    #tile11412 {position: absolute; top: 484px; left: 548px; z-index: 1;}
+    #tile11512 {position: absolute; top: 484px; left: 580px; z-index: 1;}
+    #tile11612 {position: absolute; top: 484px; left: 612px; z-index: 1;}
+    #tile11712 {position: absolute; top: 484px; left: 644px; z-index: 1;}
+    #tile11812 {position: absolute; top: 484px; left: 676px; z-index: 1;}
+    #tile11912 {position: absolute; top: 484px; left: 708px; z-index: 1;}
+    #tile12012 {position: absolute; top: 484px; left: 740px; z-index: 1;}
+    #tile12112 {position: absolute; top: 484px; left: 772px; z-index: 1;}
+    #tile12212 {position: absolute; top: 484px; left: 804px; z-index: 1;}
+    
+    #tile10113 {position: absolute; top: 516px; left: 132px; z-index: 1;}
+    #tile10213 {position: absolute; top: 516px; left: 164px; z-index: 1;}
+    #tile10313 {position: absolute; top: 516px; left: 196px; z-index: 1;}
+    #tile10413 {position: absolute; top: 516px; left: 228px; z-index: 1;}
+    #tile10513 {position: absolute; top: 516px; left: 260px; z-index: 1;}
+    #tile10613 {position: absolute; top: 516px; left: 292px; z-index: 1;}
+    #tile10713 {position: absolute; top: 516px; left: 324px; z-index: 1;}
+    #tile10813 {position: absolute; top: 516px; left: 356px; z-index: 1;}
+    #tile10913 {position: absolute; top: 516px; left: 388px; z-index: 1;}
+    #tile11013 {position: absolute; top: 516px; left: 420px; z-index: 1;}
+    #tile11113 {position: absolute; top: 516px; left: 452px; z-index: 1;}
+    #tile11213 {position: absolute; top: 516px; left: 484px; z-index: 1;}
+    #tile11313 {position: absolute; top: 516px; left: 516px; z-index: 1;}
+    #tile11413 {position: absolute; top: 516px; left: 548px; z-index: 1;}
+    #tile11513 {position: absolute; top: 516px; left: 580px; z-index: 1;}
+    #tile11613 {position: absolute; top: 516px; left: 612px; z-index: 1;}
+    #tile11713 {position: absolute; top: 516px; left: 644px; z-index: 1;}
+    #tile11813 {position: absolute; top: 516px; left: 676px; z-index: 1;}
+    #tile11913 {position: absolute; top: 516px; left: 708px; z-index: 1;}
+    #tile12013 {position: absolute; top: 516px; left: 740px; z-index: 1;}
+    #tile12113 {position: absolute; top: 516px; left: 772px; z-index: 1;}
+    #tile12213 {position: absolute; top: 516px; left: 804px; z-index: 1;}
+    
+    #tile10114 {position: absolute; top: 548px; left: 132px; z-index: 1;}
+    #tile10214 {position: absolute; top: 548px; left: 164px; z-index: 1;}
+    #tile10314 {position: absolute; top: 548px; left: 196px; z-index: 1;}
+    #tile10414 {position: absolute; top: 548px; left: 228px; z-index: 1;}
+    #tile10514 {position: absolute; top: 548px; left: 260px; z-index: 1;}
+    #tile10614 {position: absolute; top: 548px; left: 292px; z-index: 1;}
+    #tile10714 {position: absolute; top: 548px; left: 324px; z-index: 1;}
+    #tile10814 {position: absolute; top: 548px; left: 356px; z-index: 1;}
+    #tile10914 {position: absolute; top: 548px; left: 388px; z-index: 1;}
+    #tile11014 {position: absolute; top: 548px; left: 420px; z-index: 1;}
+    #tile11114 {position: absolute; top: 548px; left: 452px; z-index: 1;}
+    #tile11214 {position: absolute; top: 548px; left: 484px; z-index: 1;}
+    #tile11314 {position: absolute; top: 548px; left: 516px; z-index: 1;}
+    #tile11414 {position: absolute; top: 548px; left: 548px; z-index: 1;}
+    #tile11514 {position: absolute; top: 548px; left: 580px; z-index: 1;}
+    #tile11614 {position: absolute; top: 548px; left: 612px; z-index: 1;}
+    #tile11714 {position: absolute; top: 548px; left: 644px; z-index: 1;}
+    #tile11814 {position: absolute; top: 548px; left: 676px; z-index: 1;}
+    #tile11914 {position: absolute; top: 548px; left: 708px; z-index: 1;}
+    #tile12014 {position: absolute; top: 548px; left: 740px; z-index: 1;}
+    #tile12114 {position: absolute; top: 548px; left: 772px; z-index: 1;}
+    #tile12214 {position: absolute; top: 548px; left: 804px; z-index: 1;}
+    
+    #tile20602 {position: absolute; top: 164px; left: 292px; z-index: 2;}
+    #tile20702 {position: absolute; top: 164px; left: 324px; z-index: 2;}
+    #tile20802 {position: absolute; top: 164px; left: 356px; z-index: 2;}
+    #tile20902 {position: absolute; top: 164px; left: 388px; z-index: 2;}
+    #tile21002 {position: absolute; top: 164px; left: 420px; z-index: 2;}
+    #tile21102 {position: absolute; top: 164px; left: 452px; z-index: 2;}
+    #tile21202 {position: absolute; top: 164px; left: 484px; z-index: 2;}
+    #tile21302 {position: absolute; top: 164px; left: 516px; z-index: 2;}
+    #tile21402 {position: absolute; top: 164px; left: 548px; z-index: 2;}
+    #tile21502 {position: absolute; top: 164px; left: 580px; z-index: 2;}
+    #tile21602 {position: absolute; top: 164px; left: 612px; z-index: 2;}
+    #tile21702 {position: absolute; top: 164px; left: 644px; z-index: 2;}
+    
+    #tile20603 {position: absolute; top: 196px; left: 292px; z-index: 2;}
+    #tile20703 {position: absolute; top: 196px; left: 324px; z-index: 2;}
+    #tile20803 {position: absolute; top: 196px; left: 356px; z-index: 2;}
+    #tile20903 {position: absolute; top: 196px; left: 388px; z-index: 2;}
+    #tile21003 {position: absolute; top: 196px; left: 420px; z-index: 2;}
+    #tile21103 {position: absolute; top: 196px; left: 452px; z-index: 2;}
+    #tile21203 {position: absolute; top: 196px; left: 484px; z-index: 2;}
+    #tile21303 {position: absolute; top: 196px; left: 516px; z-index: 2;}
+    #tile21403 {position: absolute; top: 196px; left: 548px; z-index: 2;}
+    #tile21503 {position: absolute; top: 196px; left: 580px; z-index: 2;}
+    #tile21603 {position: absolute; top: 196px; left: 612px; z-index: 2;}
+    #tile21703 {position: absolute; top: 196px; left: 644px; z-index: 2;}
+    
+    #tile20604 {position: absolute; top: 228px; left: 292px; z-index: 2;}
+    #tile20704 {position: absolute; top: 228px; left: 324px; z-index: 2;}
+    #tile20804 {position: absolute; top: 228px; left: 356px; z-index: 2;}
+    #tile20904 {position: absolute; top: 228px; left: 388px; z-index: 2;}
+    #tile21004 {position: absolute; top: 228px; left: 420px; z-index: 2;}
+    #tile21104 {position: absolute; top: 228px; left: 452px; z-index: 2;}
+    #tile21204 {position: absolute; top: 228px; left: 484px; z-index: 2;}
+    #tile21304 {position: absolute; top: 228px; left: 516px; z-index: 2;}
+    #tile21404 {position: absolute; top: 228px; left: 548px; z-index: 2;}
+    #tile21504 {position: absolute; top: 228px; left: 580px; z-index: 2;}
+    #tile21604 {position: absolute; top: 228px; left: 612px; z-index: 2;}
+    #tile21704 {position: absolute; top: 228px; left: 644px; z-index: 2;}
+    
+    #tile20605 {position: absolute; top: 260px; left: 292px; z-index: 2;}
+    #tile20705 {position: absolute; top: 260px; left: 324px; z-index: 2;}
+    #tile20805 {position: absolute; top: 260px; left: 356px; z-index: 2;}
+    #tile20905 {position: absolute; top: 260px; left: 388px; z-index: 2;}
+    #tile21005 {position: absolute; top: 260px; left: 420px; z-index: 2;}
+    #tile21105 {position: absolute; top: 260px; left: 452px; z-index: 2;}
+    #tile21205 {position: absolute; top: 260px; left: 484px; z-index: 2;}
+    #tile21305 {position: absolute; top: 260px; left: 516px; z-index: 2;}
+    #tile21405 {position: absolute; top: 260px; left: 548px; z-index: 2;}
+    #tile21505 {position: absolute; top: 260px; left: 580px; z-index: 2;}
+    #tile21605 {position: absolute; top: 260px; left: 612px; z-index: 2;}
+    #tile21705 {position: absolute; top: 260px; left: 644px; z-index: 2;}
+    
+    #tile20606 {position: absolute; top: 292px; left: 292px; z-index: 2;}
+    #tile20706 {position: absolute; top: 292px; left: 324px; z-index: 2;}
+    #tile20806 {position: absolute; top: 292px; left: 356px; z-index: 2;}
+    #tile20906 {position: absolute; top: 292px; left: 388px; z-index: 2;}
+    #tile21006 {position: absolute; top: 292px; left: 420px; z-index: 2;}
+    #tile21106 {position: absolute; top: 292px; left: 452px; z-index: 2;}
+    #tile21206 {position: absolute; top: 292px; left: 484px; z-index: 2;}
+    #tile21306 {position: absolute; top: 292px; left: 516px; z-index: 2;}
+    #tile21406 {position: absolute; top: 292px; left: 548px; z-index: 2;}
+    #tile21506 {position: absolute; top: 292px; left: 580px; z-index: 2;}
+    #tile21606 {position: absolute; top: 292px; left: 612px; z-index: 2;}
+    #tile21706 {position: absolute; top: 292px; left: 644px; z-index: 2;}
+    
+    #tile20607 {position: absolute; top: 324px; left: 292px; z-index: 2;}
+    #tile20707 {position: absolute; top: 324px; left: 324px; z-index: 2;}
+    #tile20807 {position: absolute; top: 324px; left: 356px; z-index: 2;}
+    #tile20907 {position: absolute; top: 324px; left: 388px; z-index: 2;}
+    #tile21007 {position: absolute; top: 324px; left: 420px; z-index: 2;}
+    #tile21107 {position: absolute; top: 324px; left: 452px; z-index: 2;}
+    #tile21207 {position: absolute; top: 324px; left: 484px; z-index: 2;}
+    #tile21307 {position: absolute; top: 324px; left: 516px; z-index: 2;}
+    #tile21407 {position: absolute; top: 324px; left: 548px; z-index: 2;}
+    #tile21507 {position: absolute; top: 324px; left: 580px; z-index: 2;}
+    #tile21607 {position: absolute; top: 324px; left: 612px; z-index: 2;}
+    #tile21707 {position: absolute; top: 324px; left: 644px; z-index: 2;}
+    
+    #tile20608 {position: absolute; top: 356px; left: 292px; z-index: 2;}
+    #tile20708 {position: absolute; top: 356px; left: 324px; z-index: 2;}
+    #tile20808 {position: absolute; top: 356px; left: 356px; z-index: 2;}
+    #tile20908 {position: absolute; top: 356px; left: 388px; z-index: 2;}
+    #tile21008 {position: absolute; top: 356px; left: 420px; z-index: 2;}
+    #tile21108 {position: absolute; top: 356px; left: 452px; z-index: 2;}
+    #tile21208 {position: absolute; top: 356px; left: 484px; z-index: 2;}
+    #tile21308 {position: absolute; top: 356px; left: 516px; z-index: 2;}
+    #tile21408 {position: absolute; top: 356px; left: 548px; z-index: 2;}
+    #tile21508 {position: absolute; top: 356px; left: 580px; z-index: 2;}
+    #tile21608 {position: absolute; top: 356px; left: 612px; z-index: 2;}
+    #tile21708 {position: absolute; top: 356px; left: 644px; z-index: 2;}
+    
+    #tile20609 {position: absolute; top: 388px; left: 292px; z-index: 2;}
+    #tile20709 {position: absolute; top: 388px; left: 324px; z-index: 2;}
+    #tile20809 {position: absolute; top: 388px; left: 356px; z-index: 2;}
+    #tile20909 {position: absolute; top: 388px; left: 388px; z-index: 2;}
+    #tile21009 {position: absolute; top: 388px; left: 420px; z-index: 2;}
+    #tile21109 {position: absolute; top: 388px; left: 452px; z-index: 2;}
+    #tile21209 {position: absolute; top: 388px; left: 484px; z-index: 2;}
+    #tile21309 {position: absolute; top: 388px; left: 516px; z-index: 2;}
+    #tile21409 {position: absolute; top: 388px; left: 548px; z-index: 2;}
+    #tile21509 {position: absolute; top: 388px; left: 580px; z-index: 2;}
+    #tile21609 {position: absolute; top: 388px; left: 612px; z-index: 2;}
+    #tile21709 {position: absolute; top: 388px; left: 644px; z-index: 2;}
+    
+    #tile20610 {position: absolute; top: 420px; left: 292px; z-index: 2;}
+    #tile20710 {position: absolute; top: 420px; left: 324px; z-index: 2;}
+    #tile20810 {position: absolute; top: 420px; left: 356px; z-index: 2;}
+    #tile20910 {position: absolute; top: 420px; left: 388px; z-index: 2;}
+    #tile21010 {position: absolute; top: 420px; left: 420px; z-index: 2;}
+    #tile21110 {position: absolute; top: 420px; left: 452px; z-index: 2;}
+    #tile21210 {position: absolute; top: 420px; left: 484px; z-index: 2;}
+    #tile21310 {position: absolute; top: 420px; left: 516px; z-index: 2;}
+    #tile21410 {position: absolute; top: 420px; left: 548px; z-index: 2;}
+    #tile21510 {position: absolute; top: 420px; left: 580px; z-index: 2;}
+    #tile21610 {position: absolute; top: 420px; left: 612px; z-index: 2;}
+    #tile21710 {position: absolute; top: 420px; left: 644px; z-index: 2;}
+    
+    #tile20611 {position: absolute; top: 452px; left: 292px; z-index: 2;}
+    #tile20711 {position: absolute; top: 452px; left: 324px; z-index: 2;}
+    #tile20811 {position: absolute; top: 452px; left: 356px; z-index: 2;}
+    #tile20911 {position: absolute; top: 452px; left: 388px; z-index: 2;}
+    #tile21011 {position: absolute; top: 452px; left: 420px; z-index: 2;}
+    #tile21111 {position: absolute; top: 452px; left: 452px; z-index: 2;}
+    #tile21211 {position: absolute; top: 452px; left: 484px; z-index: 2;}
+    #tile21311 {position: absolute; top: 452px; left: 516px; z-index: 2;}
+    #tile21411 {position: absolute; top: 452px; left: 548px; z-index: 2;}
+    #tile21511 {position: absolute; top: 452px; left: 580px; z-index: 2;}
+    #tile21611 {position: absolute; top: 452px; left: 612px; z-index: 2;}
+    #tile21711 {position: absolute; top: 452px; left: 644px; z-index: 2;}
+    
+    #tile20612 {position: absolute; top: 484px; left: 292px; z-index: 2;}
+    #tile20712 {position: absolute; top: 484px; left: 324px; z-index: 2;}
+    #tile20812 {position: absolute; top: 484px; left: 356px; z-index: 2;}
+    #tile20912 {position: absolute; top: 484px; left: 388px; z-index: 2;}
+    #tile21012 {position: absolute; top: 484px; left: 420px; z-index: 2;}
+    #tile21112 {position: absolute; top: 484px; left: 452px; z-index: 2;}
+    #tile21212 {position: absolute; top: 484px; left: 484px; z-index: 2;}
+    #tile21312 {position: absolute; top: 484px; left: 516px; z-index: 2;}
+    #tile21412 {position: absolute; top: 484px; left: 548px; z-index: 2;}
+    #tile21512 {position: absolute; top: 484px; left: 580px; z-index: 2;}
+    #tile21612 {position: absolute; top: 484px; left: 612px; z-index: 2;}
+    #tile21712 {position: absolute; top: 484px; left: 644px; z-index: 2;}
+    
+    #tile20613 {position: absolute; top: 516px; left: 292px; z-index: 2;}
+    #tile20713 {position: absolute; top: 516px; left: 324px; z-index: 2;}
+    #tile20813 {position: absolute; top: 516px; left: 356px; z-index: 2;}
+    #tile20913 {position: absolute; top: 516px; left: 388px; z-index: 2;}
+    #tile21013 {position: absolute; top: 516px; left: 420px; z-index: 2;}
+    #tile21113 {position: absolute; top: 516px; left: 452px; z-index: 2;}
+    #tile21213 {position: absolute; top: 516px; left: 484px; z-index: 2;}
+    #tile21313 {position: absolute; top: 516px; left: 516px; z-index: 2;}
+    #tile21413 {position: absolute; top: 516px; left: 548px; z-index: 2;}
+    #tile21513 {position: absolute; top: 516px; left: 580px; z-index: 2;}
+    #tile21613 {position: absolute; top: 516px; left: 612px; z-index: 2;}
+    #tile21713 {position: absolute; top: 516px; left: 644px; z-index: 2;}
+    
+    #tile_icon {position: absolute; top: 164px; left: 142px; z-index: 2;}
+    #tile_yellow {position: absolute; top: 228px; left: 716px; z-index: 2;}
+    #tile_blue {position: absolute; top: 260px; left: 716px; z-index: 2;}
+    #tile_red {position: absolute; top: 292px; left: 716px; z-index: 2;}
+    
+    #var_status {position: absolute; top: 148px; left: 186px; z-index: 2; color: white;}
+    #var_floor {position: absolute; top: 117px; left: 188px; z-index: 2; color: white;}
+    #var_lvl {position: absolute; top: 196px; left: 206px; z-index: 2; color: white;}
+    #var_hp {position: absolute; top: 224px; left: 206px; z-index: 2; color: white;}
+    #var_atk {position: absolute; top: 252px; left: 206px; z-index: 2; color: white;}
+    #var_den {position: absolute; top: 282px; left: 206px; z-index: 2; color: white;}
+    #var_ghold {position: absolute; top: 308px; left: 206px; z-index: 2; color: white;}
+    #var_xphold {position: absolute; top: 336px; left: 206px; z-index: 2; color: white;}
+    #var_ykey {position: absolute; top: 212px; left: 772px; z-index: 2; color: white;}
+    #var_bkey {position: absolute; top: 244px; left: 772px; z-index: 2; color: white;}
+    #var_rkey {position: absolute; top: 276px; left: 772px; z-index: 2; color: white;}
+    
+    #tool_book {position: absolute; top: 392px; left: 142px; z-index: 2; color: white;}
+    #tool_pickaxe {position: absolute; top: 392px; left: 182px; z-index: 2; color: white;}
+    #tool_teleport {position: absolute; top: 392px; left: 222px; z-index: 2; color: white;}
+    #tool_poison {position: absolute; top: 424px; left: 142px; z-index: 2; color: white;}
+    #tool_doublehp {position: absolute; top: 424px; left: 182px; z-index: 2; color: white;}
+    #tool_doubleg {position: absolute; top: 424px; left: 222px; z-index: 2; color: white;}
+    #tool_sword {position: absolute; top: 140px; left: 796px; z-index: 2; color: white;}
+    #tool_shield {position: absolute; top: 170px; left: 796px; z-index: 2; color: white;}
+    
+    #text_lvl {position: absolute; top: 196px; left: 142px; z-index: 2; color: white;}
+    #text_hp {position: absolute; top: 224px; left: 142px; z-index: 2; color: white;}
+    #text_atk {position: absolute; top: 252px; left: 142px; z-index: 2; color: white;}
+    #text_den {position: absolute; top: 282px; left: 142px; z-index: 2; color: white;}
+    #text_ghold {position: absolute; top: 308px; left: 142px; z-index: 2; color: white;}
+    #text_xphold {position: absolute; top: 336px; left: 142px; z-index: 2; color: white;}
+    #text_sword {position: absolute; top: 132px; left: 716px; z-index: 2; color: white;}
+    #text_shield {position: absolute; top: 164px; left: 716px; z-index: 2; color: white;}
+    #text_save {position: absolute; top: 488px; left: 182px; z-index: 2; color: white;}
+    #text_load {position: absolute; top: 520px; left: 182px; z-index: 2; color: white;}
+    #text_up {position: absolute; top: 352px; left: 760px; z-index: 2; color: white;}
+    #text_left {position: absolute; top: 384px; left: 716px; z-index: 2; color: white;}
+    #text_right {position: absolute; top: 384px; left: 788px; z-index: 2; color: white;}
+    #text_down {position: absolute; top: 464px; left: 748px; z-index: 2; color: white;}
+    #text_enter {position: absolute; top: 516px; left: 756px; z-index: 2; color: white;}
+    
+    #button_save {position: absolute; top: 504px; left: 142px; z-index: 2;}
+    #button_load {position: absolute; top: 540px; left: 142px; z-index: 2;}
+    #button_up {position: absolute; top: 392px; left: 756px; z-index: 2;}
+    #button_left {position: absolute; top: 424px; left: 716px; z-index: 2;}
+    #button_right {position: absolute; top: 424px; left: 796px; z-index: 2;}
+    #button_down {position: absolute; top: 456px; left: 756px; z-index: 2;}
+    #button_enter {position: absolute; top: 532px; left: 716px; z-index: 2;}
+    
+    #conversation {position: absolute; top: 484px; left: 260px; z-index: 3;
+                   height: 96px; width: 448px; background-color: #555; opacity: 0.5;}
+    #text_conversation {position: absolute; top: 476px; left: 276px; z-index: 4; color: white;}
+    #selection1 {position: absolute; top: 520px; left: 276px; z-index: 5;
+                   height: 24px; width: 400px; background-color: #DDD; opacity: 0.5;}
+    #selection2 {position: absolute; top: 544px; left: 276px; z-index: 5;
+                   height: 24px; width: 400px; background-color: #DDD; opacity: 0.5;}
+    #text_selection1 {position: absolute; top: 500px; left: 276px; z-index: 4; color: white;}
+    #text_selection2 {position: absolute; top: 524px; left: 276px; z-index: 4; color: white;}
+    
+    #book {position: absolute; top: 148px; left: 276px; z-index: 3;
+                   height: 416px; width: 416px; background-color: #555; opacity: 0.8;}
+    #book1_icon {position: absolute; top: 162px; left: 308px; z-index: 4;}
+    #book2_icon {position: absolute; top: 186px; left: 308px; z-index: 4;}
+    #book3_icon {position: absolute; top: 210px; left: 308px; z-index: 4;}
+    #book4_icon {position: absolute; top: 234px; left: 308px; z-index: 4;}
+    #book5_icon {position: absolute; top: 258px; left: 308px; z-index: 4;}
+    #book6_icon {position: absolute; top: 282px; left: 308px; z-index: 4;}
+    #book7_icon {position: absolute; top: 306px; left: 308px; z-index: 4;}
+    #book8_icon {position: absolute; top: 330px; left: 308px; z-index: 4;}
+    #book1_text {position: absolute; top: 140px; left: 356px; z-index: 4; color: white;}
+    #book2_text {position: absolute; top: 156px; left: 356px; z-index: 4; color: white;}
+    #book3_text {position: absolute; top: 188px; left: 356px; z-index: 4; color: white;}
+    #book4_text {position: absolute; top: 204px; left: 356px; z-index: 4; color: white;}
+    #book5_text {position: absolute; top: 236px; left: 356px; z-index: 4; color: white;}
+    #book6_text {position: absolute; top: 252px; left: 356px; z-index: 4; color: white;}
+    #book7_text {position: absolute; top: 284px; left: 356px; z-index: 4; color: white;}
+    #book8_text {position: absolute; top: 300px; left: 356px; z-index: 4; color: white;}
+    #book9_text {position: absolute; top: 332px; left: 356px; z-index: 4; color: white;}
+    #book10_text {position: absolute; top: 348px; left: 356px; z-index: 4; color: white;}
+    #book11_text {position: absolute; top: 380px; left: 356px; z-index: 4; color: white;}
+    #book12_text {position: absolute; top: 396px; left: 356px; z-index: 4; color: white;}
+    #book13_text {position: absolute; top: 428px; left: 356px; z-index: 4; color: white;}
+    #book14_text {position: absolute; top: 444px; left: 356px; z-index: 4; color: white;}
+    #book15_text {position: absolute; top: 476px; left: 356px; z-index: 4; color: white;}
+    #book16_text {position: absolute; top: 492px; left: 356px; z-index: 4; color: white;}
+    
+    </style>
+    <title>Tower of the Sorcerer Remake</title>
+</head>
+<body>
+    <h3>Tower of the Sorcerer Remake (Mouse Only)</h3>
+    {% block content %}
+    {% load static %}
+    {% load plotly_dash %}
+    <div>{% plotly_direct name='home_dash' %}</div>
+    {% endblock %}
+</body>
+{% plotly_footer %}
+</html>
